@@ -1,0 +1,192 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instrucciones - Set Online</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <h1>Instrucciones de Set</h1>
+        <p class="subtitle">Guía detallada para jugar la versión clásica.</p>
+      </div>
+      <div class="controls">
+        <a class="button-link" href="index.html">Volver al juego</a>
+      </div>
+    </header>
+
+    <section class="instructions">
+      <h2>Objetivo</h2>
+      <p>
+        Encontrar grupos de 3 cartas que formen un <strong>set</strong>.
+        Para que tres cartas sean set, en cada atributo se debe cumplir una de estas dos condiciones:
+      </p>
+      <ul>
+        <li>los 3 valores son iguales, o</li>
+        <li>los 3 valores son distintos.</li>
+      </ul>
+
+      <h2>Ejemplos visuales</h2>
+
+      <div class="example-group">
+        <h3>Ejemplo A: set válido por cantidad</h3>
+        <p>
+          En este ejemplo, color, forma y relleno se mantienen iguales;
+          solo cambia la cantidad (1, 2 y 3), que es todo distinto.
+        </p>
+        <div class="example-row">
+          <article class="mini-card">
+            <div class="mini-symbols">
+              <span class="symbol oval mini-symbol sym-azul fill-vacio"></span>
+            </div>
+            <p class="mini-label">1 símbolo</p>
+          </article>
+          <article class="mini-card">
+            <div class="mini-symbols">
+              <span class="symbol oval mini-symbol sym-azul fill-vacio"></span>
+              <span class="symbol oval mini-symbol sym-azul fill-vacio"></span>
+            </div>
+            <p class="mini-label">2 símbolos</p>
+          </article>
+          <article class="mini-card">
+            <div class="mini-symbols">
+              <span class="symbol oval mini-symbol sym-azul fill-vacio"></span>
+              <span class="symbol oval mini-symbol sym-azul fill-vacio"></span>
+              <span class="symbol oval mini-symbol sym-azul fill-vacio"></span>
+            </div>
+            <p class="mini-label">3 símbolos</p>
+          </article>
+        </div>
+        <p class="example-result ok">✅ Es set.</p>
+      </div>
+
+      <div class="example-group">
+        <h3>Ejemplo B: set válido por color</h3>
+        <p>
+          En este ejemplo, forma, relleno y cantidad son iguales;
+          cambia el color y toma los 3 valores posibles.
+        </p>
+        <div class="example-row">
+          <article class="mini-card">
+            <div class="mini-symbols">
+              <span class="symbol diamond mini-symbol sym-azul fill-rayado"></span>
+              <span class="symbol diamond mini-symbol sym-azul fill-rayado"></span>
+            </div>
+            <p class="mini-label">Azul</p>
+          </article>
+          <article class="mini-card">
+            <div class="mini-symbols">
+              <span class="symbol diamond mini-symbol sym-naranja fill-rayado"></span>
+              <span class="symbol diamond mini-symbol sym-naranja fill-rayado"></span>
+            </div>
+            <p class="mini-label">Naranja</p>
+          </article>
+          <article class="mini-card">
+            <div class="mini-symbols">
+              <span class="symbol diamond mini-symbol sym-magenta fill-rayado"></span>
+              <span class="symbol diamond mini-symbol sym-magenta fill-rayado"></span>
+            </div>
+            <p class="mini-label">Magenta</p>
+          </article>
+        </div>
+        <p class="example-result ok">✅ Es set.</p>
+      </div>
+
+      <div class="example-group">
+        <h3>Ejemplo C: set válido más difícil (cambian varios atributos)</h3>
+        <p>
+          Este caso es más exigente porque en cada carta cambian varios atributos al mismo tiempo.
+          Aun así es set, porque en cada atributo se cumple "todo igual" o "todo distinto":
+          color (3 distintos), forma (3 distintas), relleno (3 distintos) y cantidad (1, 2, 3).
+        </p>
+        <div class="example-row">
+          <article class="mini-card">
+            <div class="mini-symbols">
+              <span class="symbol diamond mini-symbol sym-azul fill-lleno"></span>
+            </div>
+            <p class="mini-label">Azul, rombo, lleno, 1</p>
+          </article>
+          <article class="mini-card">
+            <div class="mini-symbols">
+              <span class="symbol oval mini-symbol sym-naranja fill-rayado"></span>
+              <span class="symbol oval mini-symbol sym-naranja fill-rayado"></span>
+            </div>
+            <p class="mini-label">Naranja, óvalo, rayado, 2</p>
+          </article>
+          <article class="mini-card">
+            <div class="mini-symbols">
+              <span class="symbol squiggle mini-symbol sym-magenta fill-vacio"></span>
+              <span class="symbol squiggle mini-symbol sym-magenta fill-vacio"></span>
+              <span class="symbol squiggle mini-symbol sym-magenta fill-vacio"></span>
+            </div>
+            <p class="mini-label">Magenta, ondulado, vacío, 3</p>
+          </article>
+        </div>
+        <p class="example-result ok">✅ Es set (difícil).</p>
+      </div>
+
+      <div class="example-group">
+        <h3>Ejemplo D: no es set</h3>
+        <p>
+          Acá falla el atributo color: hay dos cartas azules y una naranja
+          (ni todo igual ni todo distinto). Por eso no cuenta como set.
+        </p>
+        <div class="example-row">
+          <article class="mini-card">
+            <div class="mini-symbols">
+              <span class="symbol squiggle mini-symbol sym-azul fill-lleno"></span>
+            </div>
+            <p class="mini-label">Azul</p>
+          </article>
+          <article class="mini-card">
+            <div class="mini-symbols">
+              <span class="symbol squiggle mini-symbol sym-azul fill-lleno"></span>
+            </div>
+            <p class="mini-label">Azul</p>
+          </article>
+          <article class="mini-card">
+            <div class="mini-symbols">
+              <span class="symbol squiggle mini-symbol sym-naranja fill-lleno"></span>
+            </div>
+            <p class="mini-label">Naranja</p>
+          </article>
+        </div>
+        <p class="example-result bad">❌ No es set.</p>
+      </div>
+
+      <h2>Atributos de cada carta</h2>
+      <ul>
+        <li><strong>Color</strong>: azul, naranja, magenta.</li>
+        <li><strong>Forma</strong>: rombo, óvalo, ondulado.</li>
+        <li><strong>Cantidad</strong>: 1, 2 o 3 símbolos.</li>
+        <li><strong>Relleno</strong>: lleno, rayado o vacío.</li>
+      </ul>
+
+      <h2>Cómo jugar en esta app</h2>
+      <ul>
+        <li>Hacé clic en 3 cartas para proponer un set.</li>
+        <li>Si es correcto, sumás 1 punto y esas cartas se retiran.</li>
+        <li>Si no es correcto, se resta 1 punto (sin bajar de 0).</li>
+        <li>El tablero intenta mantenerse en 12 cartas cuando hay cartas en el mazo.</li>
+      </ul>
+
+      <h2>Botones</h2>
+      <ul>
+        <li><strong>Nuevo juego</strong>: reinicia mazo, tablero, puntaje y tiempo.</li>
+        <li><strong>Pista</strong>: marca una carta que pertenece a algún set visible.</li>
+        <li><strong>Agregar 3 cartas</strong>: agrega 3 cartas extra desde el mazo.</li>
+      </ul>
+
+      <h2>Consejos útiles</h2>
+      <ul>
+        <li>Elegí dos cartas y deducí la tercera necesaria por atributo.</li>
+        <li>Si dos cartas tienen el mismo valor en un atributo, la tercera debe repetir ese valor.</li>
+        <li>Si dos cartas tienen valores distintos en un atributo, la tercera debe tener el tercer valor posible.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

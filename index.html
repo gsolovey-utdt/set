@@ -1,0 +1,37 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Set Online - Clasico</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <h1>Set</h1>
+        <p class="subtitle">Encontrá ternas donde cada atributo sea todo igual o todo distinto.</p>
+      </div>
+      <div class="stats" aria-live="polite">
+        <span>Puntaje: <strong id="score">0</strong></span>
+        <span>Tiempo: <strong id="timer">00:00</strong></span>
+        <span>Mazo: <strong id="deck-count">81</strong></span>
+      </div>
+    </header>
+
+    <section class="controls">
+      <button id="new-game" type="button">Nuevo juego</button>
+      <button id="hint" type="button">Pista</button>
+      <button id="add-cards" type="button">Agregar 3 cartas</button>
+      <a class="button-link" href="instrucciones.html">Instrucciones</a>
+    </section>
+
+    <p id="message" class="message" aria-live="assertive"></p>
+
+    <section id="board" class="board" aria-label="Tablero de cartas de Set"></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
