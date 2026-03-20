@@ -34,28 +34,28 @@
       <div class="example-group">
         <h3>Ejemplo A: set válido por cantidad</h3>
         <p>
-          En este ejemplo, color, forma y relleno se mantienen iguales;
+          En este ejemplo, color, forma y fondo se mantienen iguales;
           solo cambia la cantidad (1, 2 y 3), que es todo distinto.
         </p>
         <div class="example-row">
           <article class="mini-card">
             <div class="mini-symbols">
-              <span class="symbol oval mini-symbol sym-azul fill-vacio"></span>
+              <span class="symbol oval mini-symbol sym-lila fill-sinfondo"></span>
             </div>
             <p class="mini-label">1 símbolo</p>
           </article>
           <article class="mini-card">
             <div class="mini-symbols">
-              <span class="symbol oval mini-symbol sym-azul fill-vacio"></span>
-              <span class="symbol oval mini-symbol sym-azul fill-vacio"></span>
+              <span class="symbol oval mini-symbol sym-lila fill-sinfondo"></span>
+              <span class="symbol oval mini-symbol sym-lila fill-sinfondo"></span>
             </div>
             <p class="mini-label">2 símbolos</p>
           </article>
           <article class="mini-card">
             <div class="mini-symbols">
-              <span class="symbol oval mini-symbol sym-azul fill-vacio"></span>
-              <span class="symbol oval mini-symbol sym-azul fill-vacio"></span>
-              <span class="symbol oval mini-symbol sym-azul fill-vacio"></span>
+              <span class="symbol oval mini-symbol sym-lila fill-sinfondo"></span>
+              <span class="symbol oval mini-symbol sym-lila fill-sinfondo"></span>
+              <span class="symbol oval mini-symbol sym-lila fill-sinfondo"></span>
             </div>
             <p class="mini-label">3 símbolos</p>
           </article>
@@ -66,30 +66,30 @@
       <div class="example-group">
         <h3>Ejemplo B: set válido por color</h3>
         <p>
-          En este ejemplo, forma, relleno y cantidad son iguales;
+          En este ejemplo, forma, fondo y cantidad son iguales;
           cambia el color y toma los 3 valores posibles.
         </p>
         <div class="example-row">
           <article class="mini-card">
             <div class="mini-symbols">
-              <span class="symbol diamond mini-symbol sym-azul fill-rayado"></span>
-              <span class="symbol diamond mini-symbol sym-azul fill-rayado"></span>
+              <span class="symbol diamond mini-symbol sym-lila fill-rallado"></span>
+              <span class="symbol diamond mini-symbol sym-lila fill-rallado"></span>
             </div>
-            <p class="mini-label">Azul</p>
+            <p class="mini-label">Lila</p>
           </article>
           <article class="mini-card">
             <div class="mini-symbols">
-              <span class="symbol diamond mini-symbol sym-naranja fill-rayado"></span>
-              <span class="symbol diamond mini-symbol sym-naranja fill-rayado"></span>
+              <span class="symbol diamond mini-symbol sym-verde fill-rallado"></span>
+              <span class="symbol diamond mini-symbol sym-verde fill-rallado"></span>
             </div>
-            <p class="mini-label">Naranja</p>
+            <p class="mini-label">Verde</p>
           </article>
           <article class="mini-card">
             <div class="mini-symbols">
-              <span class="symbol diamond mini-symbol sym-magenta fill-rayado"></span>
-              <span class="symbol diamond mini-symbol sym-magenta fill-rayado"></span>
+              <span class="symbol diamond mini-symbol sym-rojo fill-rallado"></span>
+              <span class="symbol diamond mini-symbol sym-rojo fill-rallado"></span>
             </div>
-            <p class="mini-label">Magenta</p>
+            <p class="mini-label">Rojo</p>
           </article>
         </div>
         <p class="example-result ok">✅ Es set.</p>
@@ -100,29 +100,29 @@
         <p>
           Este caso es más exigente porque en cada carta cambian varios atributos al mismo tiempo.
           Aun así es set, porque en cada atributo se cumple "todo igual" o "todo distinto":
-          color (3 distintos), forma (3 distintas), relleno (3 distintos) y cantidad (1, 2, 3).
+          color (3 distintos), forma (3 distintas), fondo (3 distintos) y cantidad (1, 2, 3).
         </p>
         <div class="example-row">
           <article class="mini-card">
             <div class="mini-symbols">
-              <span class="symbol diamond mini-symbol sym-azul fill-lleno"></span>
+              <span class="symbol diamond mini-symbol sym-lila fill-solido"></span>
             </div>
-            <p class="mini-label">Azul, rombo, lleno, 1</p>
+            <p class="mini-label">Lila, rombo, sólido, 1</p>
           </article>
           <article class="mini-card">
             <div class="mini-symbols">
-              <span class="symbol oval mini-symbol sym-naranja fill-rayado"></span>
-              <span class="symbol oval mini-symbol sym-naranja fill-rayado"></span>
+              <span class="symbol oval mini-symbol sym-verde fill-rallado"></span>
+              <span class="symbol oval mini-symbol sym-verde fill-rallado"></span>
             </div>
-            <p class="mini-label">Naranja, óvalo, rayado, 2</p>
+            <p class="mini-label">Verde, óvalo, rallado, 2</p>
           </article>
           <article class="mini-card">
             <div class="mini-symbols">
-              <span class="symbol squiggle mini-symbol sym-magenta fill-vacio"></span>
-              <span class="symbol squiggle mini-symbol sym-magenta fill-vacio"></span>
-              <span class="symbol squiggle mini-symbol sym-magenta fill-vacio"></span>
+              <span class="symbol square mini-symbol sym-rojo fill-sinfondo"></span>
+              <span class="symbol square mini-symbol sym-rojo fill-sinfondo"></span>
+              <span class="symbol square mini-symbol sym-rojo fill-sinfondo"></span>
             </div>
-            <p class="mini-label">Magenta, ondulado, vacío, 3</p>
+            <p class="mini-label">Rojo, cuadrado, sin fondo, 3</p>
           </article>
         </div>
         <p class="example-result ok">✅ Es set (difícil).</p>
@@ -131,27 +131,27 @@
       <div class="example-group">
         <h3>Ejemplo D: no es set</h3>
         <p>
-          Acá falla el atributo color: hay dos cartas azules y una naranja
+          Acá falla el atributo color: hay dos cartas lila y una verde
           (ni todo igual ni todo distinto). Por eso no cuenta como set.
         </p>
         <div class="example-row">
           <article class="mini-card">
             <div class="mini-symbols">
-              <span class="symbol squiggle mini-symbol sym-azul fill-lleno"></span>
+              <span class="symbol square mini-symbol sym-lila fill-solido"></span>
             </div>
-            <p class="mini-label">Azul</p>
+            <p class="mini-label">Lila</p>
           </article>
           <article class="mini-card">
             <div class="mini-symbols">
-              <span class="symbol squiggle mini-symbol sym-azul fill-lleno"></span>
+              <span class="symbol square mini-symbol sym-lila fill-solido"></span>
             </div>
-            <p class="mini-label">Azul</p>
+            <p class="mini-label">Lila</p>
           </article>
           <article class="mini-card">
             <div class="mini-symbols">
-              <span class="symbol squiggle mini-symbol sym-naranja fill-lleno"></span>
+              <span class="symbol square mini-symbol sym-verde fill-solido"></span>
             </div>
-            <p class="mini-label">Naranja</p>
+            <p class="mini-label">Verde</p>
           </article>
         </div>
         <p class="example-result bad">❌ No es set.</p>
@@ -159,16 +159,16 @@
 
       <h2>Atributos de cada carta</h2>
       <ul>
-        <li><strong>Color</strong>: azul, naranja, magenta.</li>
-        <li><strong>Forma</strong>: rombo, óvalo, ondulado.</li>
+        <li><strong>Color</strong>: lila, verde, rojo.</li>
+        <li><strong>Forma</strong>: óvalo, rombo, cuadrado.</li>
         <li><strong>Cantidad</strong>: 1, 2 o 3 símbolos.</li>
-        <li><strong>Relleno</strong>: lleno, rayado o vacío.</li>
+        <li><strong>Fondo</strong>: rallado, sólido o sin fondo.</li>
       </ul>
 
       <h2>Cómo jugar en esta app</h2>
       <ul>
         <li>Hacé clic en 3 cartas para proponer un set.</li>
-        <li>Si es correcto, sumás 1 punto y esas cartas se retiran.</li>
+        <li>Si es correcto, sumás 1 punto y las nuevas cartas entran en los mismos lugares.</li>
         <li>Si no es correcto, se resta 1 punto (sin bajar de 0).</li>
         <li>El tablero intenta mantenerse en 12 cartas cuando hay cartas en el mazo.</li>
       </ul>

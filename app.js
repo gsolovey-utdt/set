@@ -1,20 +1,19 @@
 ﻿(() => {
-  // Paleta Okabe-Ito (color-blind safe)
   const COLORES = [
-    { nombre: "azul", hex: "#0072B2" },
-    { nombre: "naranja", hex: "#E69F00" },
-    { nombre: "magenta", hex: "#CC79A7" },
+    { nombre: "lila", hex: "#8f5fbf" },
+    { nombre: "verde", hex: "#2e8b57" },
+    { nombre: "rojo", hex: "#c92a2a" },
   ];
 
-  const FORMAS = ["rombo", "ovalo", "ondulado"];
-  const RELLENOS = ["lleno", "rayado", "vacio"];
+  const FORMAS = ["ovalo", "rombo", "cuadrado"];
+  const FONDOS = ["rallado", "solido", "sin_fondo"];
   const NUMEROS = [1, 2, 3];
-  const ATRIBUTOS = ["color", "forma", "relleno", "numero"];
+  const ATRIBUTOS = ["color", "forma", "fondo", "numero"];
 
   const CLASE_FORMA = {
     rombo: "diamond",
     ovalo: "oval",
-    ondulado: "squiggle",
+    cuadrado: "square",
   };
 
   const COLOR_HEX = COLORES.reduce((acc, color) => {
@@ -64,12 +63,12 @@
     const deck = [];
     for (const color of COLORES.map((entry) => entry.nombre)) {
       for (const forma of FORMAS) {
-        for (const relleno of RELLENOS) {
+        for (const fondo of FONDOS) {
           for (const numero of NUMEROS) {
             deck.push({
               color,
               forma,
-              relleno,
+              fondo,
               numero,
               id: crypto.randomUUID(),
             });
@@ -139,15 +138,15 @@
     symbol.className = `symbol ${CLASE_FORMA[card.forma]}`;
     symbol.style.border = `2px solid ${COLOR_HEX[card.color]}`;
 
-    if (card.relleno === "lleno") {
+    if (card.fondo === "solido") {
       symbol.style.background = COLOR_HEX[card.color];
     }
 
-    if (card.relleno === "vacio") {
+    if (card.fondo === "sin_fondo") {
       symbol.style.background = "transparent";
     }
 
-    if (card.relleno === "rayado") {
+    if (card.fondo === "rallado") {
       symbol.style.background = `repeating-linear-gradient(
         -45deg,
         ${COLOR_HEX[card.color]},
@@ -161,7 +160,12 @@
   }
 
   function describeCard(card) {
-    return `${card.numero} ${card.forma} ${card.color} ${card.relleno}`;
+    const fondoTexto = {
+      rallado: "rallado",
+      solido: "sólido",
+      sin_fondo: "sin fondo",
+    };
+    return `${card.numero} ${card.forma} ${card.color} ${fondoTexto[card.fondo]}`;
   }
 
   function toggleCard(id) {
@@ -200,12 +204,21 @@
       scoreEl.textContent = String(state.score);
 
       const selectedIds = new Set(state.selected);
-      state.board = state.board.filter((card) => !selectedIds.has(card.id));
-      state.selected = [];
+      const selectedIndices = state.board
+        .map((card, idx) => (selectedIds.has(card.id) ? idx : -1))
+        .filter((idx) => idx >= 0);
 
-      while (state.board.length < 12 && state.deck.length > 0) {
-        deal(3);
-      }
+      selectedIndices.forEach((idx) => {
+        if (state.deck.length > 0) {
+          state.board[idx] = state.deck.shift();
+        } else {
+          state.board[idx] = null;
+        }
+      });
+
+      state.board = state.board.filter(Boolean);
+      updateDeckCount();
+      state.selected = [];
 
       ensureSetOnBoard();
       render();

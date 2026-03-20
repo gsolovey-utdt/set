@@ -167,11 +167,6 @@ button:active,
   display: inline-block;
 }
 
-.symbol.squiggle {
-  border-radius: 50% 35% 50% 40% / 40% 60% 35% 60%;
-  transform: rotate(-14deg);
-}
-
 .symbol.oval {
   border-radius: 999px;
 }
@@ -179,6 +174,13 @@ button:active,
 .symbol.diamond {
   transform: rotate(45deg);
   border-radius: 2px;
+}
+
+.symbol.square {
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  transform: none;
 }
 
 .instructions {
@@ -251,26 +253,32 @@ button:active,
   border-color: var(--sym-color);
 }
 
+.sym-lila,
 .sym-azul {
-  --sym-color: #0072b2;
+  --sym-color: #8f5fbf;
 }
 
+.sym-verde,
 .sym-naranja {
-  --sym-color: #e69f00;
+  --sym-color: #2e8b57;
 }
 
+.sym-rojo,
 .sym-magenta {
-  --sym-color: #cc79a7;
+  --sym-color: #c92a2a;
 }
 
+.fill-sinfondo,
 .fill-vacio {
   background: transparent;
 }
 
+.fill-solido,
 .fill-lleno {
   background: var(--sym-color);
 }
 
+.fill-rallado,
 .fill-rayado {
   background: repeating-linear-gradient(
     -45deg,
@@ -340,5 +348,10 @@ button:active,
   .mini-symbol {
     width: 34px;
     height: 20px;
+  }
+
+  .symbol.square {
+    width: 28px;
+    height: 28px;
   }
 }
